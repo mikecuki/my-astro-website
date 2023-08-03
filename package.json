@@ -13,7 +13,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "astro": "^2.9.7"
+    "@storyblok/astro": "^2.5.5",
+    "astro": "^2.9.7",
+    "vite": "^4.4.8"
   },
   "devDependencies": {
     "husky": "^8.0.0",
