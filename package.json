@@ -10,7 +10,8 @@
     "astro": "astro",
     "format": "prettier --check **/*.{js,mjs,astro,json,html,css}\"",
     "format:write": "prettier --write **/*.{js,mjs,astro,json,html,css}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem"
   },
   "dependencies": {
     "@storyblok/astro": "^2.5.5",
@@ -18,6 +19,7 @@
     "vite": "^4.4.8"
   },
   "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.0.1",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",

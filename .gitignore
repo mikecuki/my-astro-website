@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 #storyblok localhost access
 src/pages/editor.html
+
+# HTTPS Proxy certificates
+localhost.pem
+localhost-key.pem
