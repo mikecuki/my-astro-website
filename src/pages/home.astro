@@ -1,0 +1,13 @@
+---
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import { getPageInfo } from '../utils/page'
+import BaseLayout from '@layouts/BaseLayout.astro'
+
+const pageTitle = 'Michael Cukingnan - Home'
+
+const content = await getPageInfo('home')
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <StoryblokComponent blok={content} />
+</BaseLayout>

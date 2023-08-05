@@ -1,22 +1,7 @@
 ---
-import { useStoryblokApi } from '@storyblok/astro'
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import BaseLayout from '@layouts/BaseLayout.astro'
 
 const pageTitle = 'Michael Cukingnan'
-const storyblokApi = useStoryblokApi()
-let content
-
-try {
-  const { data } = await storyblokApi.get(`cdn/stories/home`, {
-    version: import.meta.env.DEV ? 'draft' : 'published',
-  })
-  content = data.story.content
-} catch (error) {
-  return Astro.redirect('/404')
-}
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <StoryblokComponent blok={content} />
-</BaseLayout>
+<BaseLayout pageTitle={pageTitle} />
