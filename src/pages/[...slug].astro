@@ -1,0 +1,59 @@
+---
+import { useStoryblokApi } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
+
+const pageTitle = 'Michael Cukingnan'
+
+type Link = {
+  id: number
+  slug: string
+  name: string
+  is_folder: boolean
+  parent_id: number
+  published: boolean
+  path: string
+  position: number
+  uuid: string
+  is_startpage: boolean
+  real_path: string
+}
+
+export async function getStaticPaths() {
+  const storyblokApi = useStoryblokApi()
+
+  const { data } = await storyblokApi.get('cdn/links', {
+    version:
+      import.meta.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+  })
+
+  let links = data.links
+  links = Object.values(links)
+
+  return links.map((link: Link) => {
+    return {
+      params: {
+        slug: link.slug === 'home' ? undefined : link.slug,
+      },
+    }
+  })
+}
+
+const { slug } = Astro.params
+
+const storyblokApi = useStoryblokApi()
+
+const { data } = await storyblokApi.get(
+  `cdn/stories/${slug === undefined ? 'home' : slug}`,
+  {
+    version:
+      import.meta.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
+  },
+)
+
+const story = data.story
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <StoryblokComponent blok={story.content} />
+</BaseLayout>

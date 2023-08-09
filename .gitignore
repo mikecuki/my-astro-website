@@ -1,5 +1,6 @@
 # build output
 dist/
+.netlify/
 # generated types
 .astro/
 
@@ -19,3 +20,10 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+#storyblok localhost access
+src/pages/editor.html
+
+# HTTPS Proxy certificates
+localhost.pem
+localhost-key.pem
