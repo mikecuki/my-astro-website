@@ -7,13 +7,18 @@ import basicSsl from '@vitejs/plugin-basic-ssl'
 const env = loadEnv('', process.cwd(), 'STORYBLOK')
 
 export default defineConfig({
-  output: 'server',
-  adapter: netlify(),
+  // server: preview
+  // static: public
+  output: import.meta.env.VITE_ENVIRONMENT === 'preview' ? 'server' : 'static',
+  adapter:
+    import.meta.env.VITE_ENVIRONMENT === 'preview' ? netlify() : undefined,
   integrations: [
     storyblok({
-      // Access token must be updated when changing spaces in storyblok
-      accessToken: env.STORYBLOK_TOKEN,
-      bridge: true,
+      accessToken:
+        import.meta.env.VITE_ENVIRONMENT === 'preview'
+          ? 'ZO2jzFhw61xOkJr2ntHu9gtt'
+          : 'UW5wnKDsTNXKlxqXkrP4twtt',
+      bridge: import.meta.env.VITE_ENVIRONMENT === 'preview' ? true : false,
       apiOptions: {
         region: 'us',
       },
