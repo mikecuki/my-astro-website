@@ -26,6 +26,3 @@ src/pages/editor.html
 # HTTPS Proxy certificates
 localhost.pem
 localhost-key.pem
-
-# netlify
-.netlify
