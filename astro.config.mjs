@@ -6,12 +6,9 @@ import basicSsl from '@vitejs/plugin-basic-ssl'
 const env = loadEnv('', process.cwd(), 'STORYBLOK')
 
 export default defineConfig({
-  redirects: {
-    '/': '/home',
-  },
   integrations: [
     storyblok({
-      // Access token must be updated between spaces
+      // Access token must be updated when changing spaces in storyblok
       accessToken: env.STORYBLOK_TOKEN,
       components: {
         page: 'storyblok/Page',
