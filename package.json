@@ -14,6 +14,7 @@
     "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem"
   },
   "dependencies": {
+    "@astrojs/netlify": "^2.5.2",
     "@storyblok/astro": "^2.5.5",
     "astro": "^2.9.7",
     "vite": "^4.4.8"
