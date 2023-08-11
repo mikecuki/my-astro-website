@@ -2,20 +2,7 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import BaseLayout from '@layouts/BaseLayout.astro'
-
-type Link = {
-  id: number
-  slug: string
-  name: string
-  is_folder: boolean
-  parent_id: number
-  published: boolean
-  path: string
-  position: number
-  uuid: string
-  is_startpage: boolean
-  real_path: string
-}
+import type { Link } from 'src/types'
 
 export async function getStaticPaths() {
   const storyblokApi = useStoryblokApi()

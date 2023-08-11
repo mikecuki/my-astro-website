@@ -21,6 +21,7 @@ export default defineConfig({
         region: 'us',
       },
       components: {
+        config: 'storyblok/Menu',
         page: 'storyblok/Page',
         feature: 'storyblok/Feature',
         grid: 'storyblok/Grid',
