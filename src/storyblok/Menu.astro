@@ -3,7 +3,7 @@ import { useStoryblokApi } from '@storyblok/astro'
 import type { Menu } from 'src/types'
 
 const storyblokApi = useStoryblokApi()
-const { data } = await storyblokApi.get('cdn/stories/config', {
+const { data } = await storyblokApi.get('cdn/stories/menu', {
   version:
     import.meta.env.VITE_ENVIRONMENT === 'preview' ? 'draft' : 'published',
   resolve_links: 'url',
