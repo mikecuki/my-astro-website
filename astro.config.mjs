@@ -1,10 +1,8 @@
 import { defineConfig } from 'astro/config'
 import netlify from '@astrojs/netlify/functions'
 import storyblok from '@storyblok/astro'
-import { loadEnv } from 'vite'
 import basicSsl from '@vitejs/plugin-basic-ssl'
-
-const env = loadEnv('', process.cwd(), 'STORYBLOK')
+import tailwind from '@astrojs/tailwind'
 
 export default defineConfig({
   // server: preview
@@ -29,6 +27,7 @@ export default defineConfig({
         teaser: 'storyblok/Teaser',
       },
     }),
+    tailwind(),
   ],
   vite: {
     plugins: [basicSsl()],
