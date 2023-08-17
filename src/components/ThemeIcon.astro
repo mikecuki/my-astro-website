@@ -21,9 +21,13 @@
     }
   })
 
-  document.getElementById('themeToggle').onclick = function (e) {
+  function changeTheme(e) {
     let newTheme = e.target.checked ? 'dark' : 'light'
     localStorage.setItem('theme', newTheme)
     document.documentElement.setAttribute('data-theme', newTheme)
   }
+
+  const themeInput = document.getElementById('themeToggle')
+
+  themeInput.addEventListener('click', changeTheme)
 </script>
