@@ -1,8 +1,7 @@
-html.dark {
-  background-color: #0d0950;
-  color: #fff;
+[data-theme='light'] .home {
+  fill: black;
 }
 
-.dark .nav-links a {
-  color: #fff;
+[data-theme='dark'] .home {
+  fill: #a6adba;
 }

@@ -8,8 +8,6 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --check **/*.{js,mjs,astro,json,html,css}\"",
-    "format:write": "prettier --write **/*.{js,mjs,astro,json,html,css}\"",
     "prepare": "husky install",
     "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem"
   },
@@ -23,6 +21,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "^1.0.1",
+    "daisyui": "^3.5.1",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
